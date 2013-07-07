@@ -26,11 +26,7 @@ class Customer
 		
 		foreach ($this->rentals as $rental){
 			// レンタルポイントを加算
-			$frequentRenterPoints++;
-			// 新作を2日以上借りた場合はボーナスポイント
-			if(($rental->getMovie()->getPriceCOde() === Movie::NEW_RELEASE) && $rental->getDaysRented() > 1) {
-				$frequentRenterPoints++;
-			}
+			$frequentRenterPoints += $rental->getFrequentRenterPoints();
 			// この貸し出しに関する数値の表示
 			$result .= "\t" . $rental->getMovie()->getTitle() . "\t" . $rental->getCharge() . "\n";
 			$totalAmount += $rental->getCharge();
