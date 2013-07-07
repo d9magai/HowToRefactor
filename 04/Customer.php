@@ -25,7 +25,7 @@ class Customer
 		$result = "Rental Record for " . $this->getName() . "\n";
 		
 		foreach ($this->rentals as $rental){
-			$thisAmount = $this->amountFor($rental);
+			$thisAmount = $rental->getCharge();
 			
 			// レンタルポイントを加算
 			$frequentRenterPoints++;
