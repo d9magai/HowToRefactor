@@ -16,6 +16,8 @@ local.properties
 .settings/
 .loadpath
 
+./git.exe.stackdump
+
 # External tool builders
 .externalToolBuilders/
 
