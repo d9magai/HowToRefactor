@@ -57,7 +57,7 @@ class Customer
 			$totalAmount += $thisAmount;
 		}
 			
-		$result .= "Amount owed is " . $totalAmount . "<>";
+		$result .= "Amount owed is " . $totalAmount . "\n";
 		$result .= "You earned " . $frequentRenterPoints . " freauent renter points";
 		return $result;
 	}
