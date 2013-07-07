@@ -28,7 +28,6 @@ abstract class Price
 		}
 		return $result;
 	}
-
 }
 
 class ChildrensPrice extends Price
