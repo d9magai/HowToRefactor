@@ -12,5 +12,5 @@
 * htmlStatement
 
 # ポリモーフィズム
-8. getCharge()の動移
+1. getCharge(),getFrequentRenterPoints()の動移
 
