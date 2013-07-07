@@ -19,14 +19,10 @@ class Customer
 		return $this->name;
 	}
 	
-	public function d(){
-		var_dump($this->rentals);
-	}
-	
 	public function statement(){
 		$totalAmount = 0;
 		$frequentRenterPoints = 0;
-		$result = "Rental Record for " . $this->getName() . "<br>";
+		$result = "Rental Record for " . $this->getName() . "\n";
 		
 		foreach ($this->rentals as $rentals){
 			$thisAmount = 0;
@@ -57,15 +53,13 @@ class Customer
 				$frequentRenterPoints++;
 			}
 			// この貸し出しに関する数値の表示
-			$result .= "\t" . $rentals->getMovie()->getTitle() . "\t" . $thisAmount . "<br>";
+			$result .= "\t" . $rentals->getMovie()->getTitle() . "\t" . $thisAmount . "\n";
 			$totalAmount += $thisAmount;
 		}
 			
-		var_dump($totalAmount);
-		$result .= "Amount owed is " . $totalAmount . "<br>";
+		$result .= "Amount owed is " . $totalAmount . "<>";
 		$result .= "You earned " . $frequentRenterPoints . " freauent renter points";
 		return $result;
 	}
 	
 }
-

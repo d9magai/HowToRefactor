@@ -11,3 +11,4 @@ $customer->addRental($rental);
 
 printf($customer->statement());
 
+

@@ -26,4 +26,3 @@ class Movie
 		return  $this->title;
 	}
 }
-
