@@ -24,17 +24,17 @@ class Customer
 		$frequentRenterPoints = 0;
 		$result = "Rental Record for " . $this->getName() . "\n";
 		
-		foreach ($this->rentals as $rentals){
-			$thisAmount = $this->amountFor($rentals);
+		foreach ($this->rentals as $rental){
+			$thisAmount = $this->amountFor($rental);
 			
 			// レンタルポイントを加算
 			$frequentRenterPoints++;
 			// 新作を2日以上借りた場合はボーナスポイント
-			if(($rentals->getMovie()->getPriceCOde() === Movie::NEW_RELEASE) && $rentals->getDaysRented() > 1) {
+			if(($rental->getMovie()->getPriceCOde() === Movie::NEW_RELEASE) && $rental->getDaysRented() > 1) {
 				$frequentRenterPoints++;
 			}
 			// この貸し出しに関する数値の表示
-			$result .= "\t" . $rentals->getMovie()->getTitle() . "\t" . $thisAmount . "\n";
+			$result .= "\t" . $rental->getMovie()->getTitle() . "\t" . $thisAmount . "\n";
 			$totalAmount += $thisAmount;
 		}
 			

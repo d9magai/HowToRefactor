@@ -24,24 +24,24 @@ class Customer
 		$frequentRenterPoints = 0;
 		$result = "Rental Record for " . $this->getName() . "\n";
 		
-		foreach ($this->rentals as $rentals){
+		foreach ($this->rentals as $rental){
 			$thisAmount = 0;
-			switch($rentals->getMovie()->getPriceCode()){
+			switch($rental->getMovie()->getPriceCode()){
 				case Movie::REGULAR:
 					$thisAmount += 2;
-					if($rentals->getDaysRented() > 2) {
-						$thisAmount += ($rentals->getDaysRented() - 2) * 1.5;
+					if($rental->getDaysRented() > 2) {
+						$thisAmount += ($rental->getDaysRented() - 2) * 1.5;
 					}
 					break;
 					
 				case Movie::NEW_RELEASE:
-					$thisAmount += $rentals->getDaysRented() * 3;
+					$thisAmount += $rental->getDaysRented() * 3;
 					break;
 					
 				case Movie::CHILDRENS:
 					$thisAmount += 1.5;
-					if($rentals->getDaysRented() > 3){
-						$thisAmount += ($rentals->getDaysRented() - 3) * 1.5;
+					if($rental->getDaysRented() > 3){
+						$thisAmount += ($rental->getDaysRented() - 3) * 1.5;
 					}
 					break;
 			}
@@ -49,11 +49,11 @@ class Customer
 			// レンタルポイントを加算
 			$frequentRenterPoints++;
 			// 新作を2日以上借りた場合はボーナスポイント
-			if(($rentals->getMovie()->getPriceCOde() === Movie::NEW_RELEASE) && $rentals->getDaysRented() > 1) {
+			if(($rental->getMovie()->getPriceCOde() === Movie::NEW_RELEASE) && $rental->getDaysRented() > 1) {
 				$frequentRenterPoints++;
 			}
 			// この貸し出しに関する数値の表示
-			$result .= "\t" . $rentals->getMovie()->getTitle() . "\t" . $thisAmount . "\n";
+			$result .= "\t" . $rental->getMovie()->getTitle() . "\t" . $thisAmount . "\n";
 			$totalAmount += $thisAmount;
 		}
 			
