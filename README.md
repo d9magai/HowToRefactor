@@ -14,4 +14,5 @@
 # ポリモーフィズム
 1. getCharge(),getFrequentRenterPoints()の動移
 2. Priceクラス追加
+3. switch文置き換え
 
