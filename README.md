@@ -13,4 +13,5 @@
 
 # ポリモーフィズム
 1. getCharge(),getFrequentRenterPoints()の動移
+2. Priceクラス追加
 
